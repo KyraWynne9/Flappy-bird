@@ -3,12 +3,12 @@
 export class PipeObstacle {
 
     x = 300;
-    y = 50;
+    y = 100;
     height = 500;
     canvas;
     pencil;
-    speed = 10;
-    gap = 350;
+    speed = 20;
+    gap = 300;
 
     //pipe
     topPipe;
@@ -24,7 +24,7 @@ export class PipeObstacle {
         this.pencil.fillStyle = 'blue'; // Set the fill color
         this.pencil.fillRect(
             this.x, 
-            this.y - (this.height - this.y), 
+            this.y - (this.height), 
             100, 
             this.height
         ); // x, y, w, h
@@ -36,6 +36,10 @@ export class PipeObstacle {
 
     move() {
         this.x -= this.speed;
+
+        if(this.x < -100) {
+            this.x = this.canvas.width;
+        }
     }
 
 
