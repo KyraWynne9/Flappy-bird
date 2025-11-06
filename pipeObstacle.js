@@ -10,8 +10,10 @@ export class PipeObstacle {
     gap = 150;
 
     //pipe parts
-    topPipe;
-    bottomPipe;
+    topPipeTopLeft;
+    topPipeTopRight;
+    bottomPipeTopLeft;
+    bottomPipeTopRight;
 
     constructor(canvas, pencil) {
         this.pencil = pencil;
