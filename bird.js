@@ -27,7 +27,7 @@ export class Bird {
     }
 
     flap() {
-        console.log("flapped")
+        console.log("Flapped!")
         this.ySpeed = -15;
     }
 
@@ -42,7 +42,17 @@ export class Bird {
     }
 
     isHitByPipe(pipeObstacle) {
+        //this detects collisions for the top pipe
+        let isFarEnoughRight = this.x > pipeObstacle.topPipeTopLeft.x;
+        let isLowEnough = this.y > pipeObstacle.topPipeTopLeft.y;
+        let isFarEnoughLeft = this.x < pipeObstacle.topPipeBottomRight.x;
+        let isHighEnough = this.y < pipeObstacle.topPipeBottomRight.y;
 
+        //use the logic above to detect for the bottom pipe here:
+
+        if(isFarEnoughRight && isLowEnough && isFarEnoughLeft && isHighEnough)
+            return true;
+        return false;
     }
 
 

@@ -10,11 +10,17 @@ function gameLoop() {
     //erase the canvas
     pencil.clearRect(0, 0, canvas.width, canvas.height);
 
-   testPipe.draw();
+   
     testPipe.move();
+    testPipe.draw();
 
     bird.gravity();
     bird.draw();
+
+    let wasHit = bird.isHitByPipe(testPipe);
+    if(wasHit) {
+        console.log("you're dead, comrade!");
+    }
 }
 
 setInterval(gameLoop, 50);
@@ -30,20 +36,18 @@ function raiseScore() {
 setInterval(raiseScore, 1000);
 
 function detectClick() {
-    console.log("CLicked!")
     bird.flap();
 }
 
-function detectKey () {
-    console.log("key pressed")
+function detectKey() {
     bird.flap();
+
 }
 
 canvas.addEventListener("click", detectClick);
-canvas.addEventListener("keypress", detectKey)
+document.addEventListener("keypress", detectKey)
 
 let testPipe = new PipeObstacle(canvas, pencil);
 testPipe.draw();
 
 let bird = new Bird(canvas, pencil);
-bird.chirp();

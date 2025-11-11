@@ -1,3 +1,5 @@
+//Uppercase p for the class name, lowercase for file name.
+//This class draws the pipe obstacle on the screen.
 export class PipeObstacle {
 
     x = 300;
@@ -6,14 +8,14 @@ export class PipeObstacle {
     width = 100;
     canvas;
     pencil;
-    speed = 20;
+    speed = 3;
     gap = 150;
 
     //pipe parts
     topPipeTopLeft;
-    topPipeTopRight;
+    topPipeBottomRight;
     bottomPipeTopLeft;
-    bottomPipeTopRight;
+    bottomPipeBottomRight;
 
     constructor(canvas, pencil) {
         this.pencil = pencil;
@@ -23,7 +25,29 @@ export class PipeObstacle {
     }
 
     draw() {
-        //top
+
+        this.topPipeTopLeft = { 
+            x : this.x,
+            y : this.y - this.height
+        }
+
+        this.topPipeBottomRight = { 
+            x : this.x + this.width,
+            y : this.y - this.height + this.height
+        }
+
+        this.bottomPipeTopLeft = {
+            x : this.x,
+            y : this.y + this.gap
+        }
+
+        this.bottomPipeBottomRight = {
+            x : this.x + this.width,
+            y : this.y + this.gap + this.height
+        }
+
+
+        //top pipe
         this.pencil.fillStyle = 'blue'; // Set the fill color
         this.pencil.fillRect(
             this.x, 
@@ -32,7 +56,7 @@ export class PipeObstacle {
             this.height
         ); // x, y, w, h
 
-        //bottom
+        //bottom pipe
         this.pencil.fillStyle = 'violet'; // Set the fill color
         this.pencil.fillRect(
             this.x, 
