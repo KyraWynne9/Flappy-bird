@@ -8,7 +8,7 @@ export class PipeObstacle {
     width = 100;
     canvas;
     pencil;
-    speed = 3;
+    speed = 10;
     gap = 175;
 
     //pipe parts
