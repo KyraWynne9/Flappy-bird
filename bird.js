@@ -15,16 +15,22 @@ export class Bird {
         this.pencil = pencil;
     }
 
-    draw() {
-        //top pipe
-        this.pencil.fillStyle = 'black'; // Set the fill color
-        this.pencil.fillRect(
-            this.x, 
-            this.y, 
-            this.width, 
-            this.height
-        ); // x, y, w, h
-    }
+let Lillie = document.getElementById("Lillie");
+
+let Lillie = {
+    x: 100,
+    y: 150,
+    width: 75,
+    height: 75,
+    speed: 10,
+    upKey: "w",
+    downKey: "s",
+    leftKey: "a",
+    rightKey: "d",
+    sprite : Lillie,
+    draw: function() {
+        pencil.drawImage(this.sprite, this.x, this.y, this.width, this.height);
+    },
 
     flap() {
         console.log("Flapped!")
@@ -51,6 +57,21 @@ export class Bird {
         //use the logic above to detect for the bottom pipe here:
 
         if(isFarEnoughRight && isLowEnough && isFarEnoughLeft && isHighEnough)
+            return true;
+        return false;
+
+    }
+
+        isHitByPipe(pipeObstacle) {
+        //this detects collisions for the top pipe
+        let isFarEnoughRight2 = this.x > pipeObstacle.bottomPipeTopLeft.x;
+        let isLowEnough2 = this.y > pipeObstacle.bottomPipeTopLeft.y;
+        let isFarEnoughLeft2 = this.x < pipeObstacle.bottomPipeBottomRight.x;
+        let isHighEnough2 = this.y < pipeObstacle.bottomPipeBottomRight.y;
+
+        //use the logic above to detect for the bottom pipe here:
+
+        if(isFarEnoughRight2 && isLowEnough2 && isFarEnoughLeft2 && isHighEnough2)
             return true;
         return false;
     }
