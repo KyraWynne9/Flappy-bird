@@ -15,22 +15,16 @@ export class Bird {
         this.pencil = pencil;
     }
 
-let Lillie = document.getElementById("Lillie");
-
-let Lillie = {
-    x: 100,
-    y: 150,
-    width: 75,
-    height: 75,
-    speed: 10,
-    upKey: "w",
-    downKey: "s",
-    leftKey: "a",
-    rightKey: "d",
-    sprite : Lillie,
-    draw: function() {
-        pencil.drawImage(this.sprite, this.x, this.y, this.width, this.height);
-    },
+    draw() {
+        //top pipe
+        this.pencil.fillStyle = 'black'; // Set the fill color
+        this.pencil.fillRect(
+            this.x, 
+            this.y, 
+            this.width, 
+            this.height
+        ); // x, y, w, h
+    }
 
     flap() {
         console.log("Flapped!")
