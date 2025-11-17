@@ -6,7 +6,7 @@ export class PipeObstacle {
     width = 100;
     canvas;
     pencil;
-    speed = 10;
+    speed = 15;
     gap = 175;
 
     //pipe parts
@@ -16,6 +16,7 @@ export class PipeObstacle {
     bottomPipeBottomRight;
 
     topPipeSprite = document.getElementById("Top_pillar");
+    bottomPipeSprite = document.getElementById("Bottom_pillar");
 
     constructor(canvas, pencil) {
         this.pencil = pencil;
@@ -58,7 +59,8 @@ export class PipeObstacle {
 
         //bottom pipe
         this.pencil.fillStyle = 'violet'; // Set the fill color
-        this.pencil.fillRect(
+        this.pencil.drawImage(
+            this.bottomPipeSprite,
             this.x, 
             this.y + this.gap, 
             this.width, 

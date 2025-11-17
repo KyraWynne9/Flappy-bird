@@ -3,14 +3,17 @@ import { Bird } from "./bird.js";
 
 let canvas = document.getElementById("myCanvas");
 let pencil = canvas.getContext("2d"); // This gives you the drawing context, like a pencil
+pencil.imageSmoothingEnabled = false
 
+
+let background = document.getElementById("Background");
 
 
 function gameLoop() {
     
     //erase the canvas
     pencil.clearRect(0, 0, canvas.width, canvas.height);
-
+    pencil.drawImage(background, 0, 0, canvas.width, canvas.height);
    
     testPipe.move();
     testPipe.draw();
@@ -21,6 +24,7 @@ function gameLoop() {
     let wasHit = bird.isHitByPipe(testPipe);
     if(wasHit) {
         console.log("you're dead, comrade!");
+        
     }
 }
 
@@ -52,3 +56,4 @@ let testPipe = new PipeObstacle(canvas, pencil);
 testPipe.draw();
 
 let bird = new Bird(canvas, pencil);
+

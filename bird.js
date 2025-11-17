@@ -10,6 +10,9 @@ export class Bird {
     ySpeed = 1;
     maximumYSpeed = 20;
 
+    birdSprite = document.getElementById("Lillie");
+
+
     constructor(canvas, pencil) {
         this.canvas = canvas;
         this.pencil = pencil;
@@ -18,7 +21,8 @@ export class Bird {
     draw() {
         //top pipe
         this.pencil.fillStyle = 'black'; // Set the fill color
-        this.pencil.fillRect(
+        this.pencil.drawImage(
+            this.birdSprite,
             this.x, 
             this.y, 
             this.width, 
