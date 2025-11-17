@@ -1,9 +1,7 @@
-//Uppercase p for the class name, lowercase for file name.
-//This class draws the pipe obstacle on the screen.
 export class PipeObstacle {
 
     x = 300;
-    y = 100;
+    y = 300;
     height; //height will be dynamic
     width = 100;
     canvas;
@@ -16,6 +14,8 @@ export class PipeObstacle {
     topPipeBottomRight;
     bottomPipeTopLeft;
     bottomPipeBottomRight;
+
+    topPipeSprite = document.getElementById("Top_pillar");
 
     constructor(canvas, pencil) {
         this.pencil = pencil;
@@ -46,10 +46,10 @@ export class PipeObstacle {
             y : this.y + this.gap + this.height
         }
 
-
         //top pipe
         this.pencil.fillStyle = 'blue'; // Set the fill color
-        this.pencil.fillRect(
+        this.pencil.drawImage(
+            this.topPipeSprite,
             this.x, 
             this.y - this.height, 
             this.width, 

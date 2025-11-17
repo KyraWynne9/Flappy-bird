@@ -48,25 +48,19 @@ export class Bird {
         let isFarEnoughLeft = this.x < pipeObstacle.topPipeBottomRight.x;
         let isHighEnough = this.y < pipeObstacle.topPipeBottomRight.y;
 
-        //use the logic above to detect for the bottom pipe here:
-
         if(isFarEnoughRight && isLowEnough && isFarEnoughLeft && isHighEnough)
             return true;
-        return false;
 
-    }
-
-        isHitByPipe(pipeObstacle) {
-        //this detects collisions for the top pipe
+        //use the logic above to detect for the bottom pipe here:
         let isFarEnoughRight2 = this.x > pipeObstacle.bottomPipeTopLeft.x;
         let isLowEnough2 = this.y > pipeObstacle.bottomPipeTopLeft.y;
         let isFarEnoughLeft2 = this.x < pipeObstacle.bottomPipeBottomRight.x;
         let isHighEnough2 = this.y < pipeObstacle.bottomPipeBottomRight.y;
 
-        //use the logic above to detect for the bottom pipe here:
-
         if(isFarEnoughRight2 && isLowEnough2 && isFarEnoughLeft2 && isHighEnough2)
             return true;
+        //use the logic above to detect for the bottom pipe here:
+
         return false;
     }
 
